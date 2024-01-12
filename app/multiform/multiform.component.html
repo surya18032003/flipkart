@@ -1,0 +1,60 @@
+<mat-stepper [linear]="isLinear" #stepper>
+    <form [formGroup]="Student" (ngSubmit)="HandleSubmit()">
+        <mat-step [stepControl]="Basicform">
+            <div formGroupName="basic">
+                <ng-template matStepLabel>PERSONAL</ng-template><br />
+                <mat-form-field>
+                    <input matInput placeholder="First name" formControlName="firstname" /> </mat-form-field><br />
+                <mat-form-field>
+                    <input matInput placeholder="Last name" formControlName="lastname" /> </mat-form-field><br />
+                <mat-form-field>
+                    <mat-label>DATE OF BIRTH</mat-label><br />
+                    <input matInput type="date" formControlName="datebirth" /> </mat-form-field><br />
+                <mat-form-field>
+                    <input matInput type="number" placeholder="AGE" formControlName="agedata" /> </mat-form-field><br />
+                <mat-form-field>
+                    <mat-label>GENDER</mat-label><br />
+                    <mat-select formControlName="generdata">
+                        <mat-option value="one">MALE</mat-option>
+                        <mat-option value="two">FEMALE</mat-option>
+                    </mat-select> </mat-form-field><br />
+                <mat-form-field>
+                    <input matInput type="text" [formControl]="mobileNumberControl" maxlength="10"
+                        placeholder="PH:NO" /> </mat-form-field><br />
+                <mat-form-field>
+                    <input matInput type="password" placeholder="PASSWORD" formControlName="passdata" />
+                </mat-form-field><br />
+                <mat-checkbox formControlName="boxdata">Check me!</mat-checkbox><br />
+                <br />
+                <div>
+                    <button mat-button matStepperNext>Next</button>
+                </div>
+                <mat-radio-group formControlName="option" aria-label="Select an option">
+                    <mat-radio-button value="1">Option 1</mat-radio-button>
+                    <mat-radio-button value="2">Option 2</mat-radio-button>
+                </mat-radio-group>
+            </div>
+        </mat-step>
+        <mat-step>
+            <ng-template matStepLabel>COLLEGE DETAIL</ng-template>
+            <h1>Govt Arts&Science College</h1>
+            <h2>Sankarankovil</h2>
+            <h1>Addmisson Open!!!</h1>
+            <h2>2023!!</h2>
+            <div>
+                <button mat-button matStepperPrevious>Back</button> |
+                <button mat-button matStepperNext>Next</button>
+            </div>
+        </mat-step>
+        <mat-step>
+            <ng-template matStepLabel>ABOUT US!!!</ng-template>
+            <h2>About The College Addmisson...</h2>
+            <h1>Contact More Details!!</h1>
+            <h2>Feedback</h2>
+            <div>
+                <button mat-button matStepperPrevious>Back</button> |
+                <button mat-button (click)="stepper.reset()">Reset</button>
+            </div>
+        </mat-step>
+    </form>
+</mat-stepper>
